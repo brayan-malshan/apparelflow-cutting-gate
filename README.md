@@ -8,6 +8,9 @@ enforced on the server, not just in the UI.
 - **Frontend:** React 18 + Vite (served by Express in production, one deployable service)
 - **Tests:** Vitest + Supertest (`npm test`)
 
+**Live demo:** https://apparelflow-cutting-gate.onrender.com
+(Free hosting: the first load after idle can take about a minute, and demo data resets when the instance restarts. Demo logins are in the table below.)
+
 ## Demo credentials
 
 | Role | Email | Password |
