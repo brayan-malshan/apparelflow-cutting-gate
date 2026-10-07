@@ -1,10 +1,10 @@
-# Render Blueprint. A persistent disk requires a paid instance type (starter or above);
-# on the free plan the disk is wiped on every restart/redeploy, which would lose all orders.
+# Free-plan Render Blueprint. The free plan has no persistent disk, so the SQLite
+# database lives on ephemeral storage and resets when the instance restarts.
 services:
   - type: web
     name: apparelflow-cutting-gate
     runtime: node
-    plan: starter
+    plan: free
     buildCommand: npm install && npm install --prefix client && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
@@ -15,9 +15,3 @@ services:
         value: production
       - key: JWT_SECRET
         generateValue: true
-      - key: DATABASE_FILE
-        value: /var/data/apparelflow.db
-    disk:
-      name: apparelflow-data
-      mountPath: /var/data
-      sizeGB: 1
